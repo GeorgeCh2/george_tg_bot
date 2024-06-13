@@ -12,6 +12,7 @@ TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 WEATHER_API_KEY = os.getenv('WEATHER_API_KEY')
 CITY_NAME = os.getenv('CITY_NAME')
+WORKER_AI_API = os.getenv('WORKER_AI_API')
 CLOUDFLARE_API_KEY = os.getenv('CLOUDFLARE_API_KEY')
 
 ICON_MAP = {
@@ -36,7 +37,7 @@ def generate_weather_img(weather):
     timestamp = str(int(time.time()))
     digest = hmac.new(CLOUDFLARE_API_KEY.encode('utf8'), "{}{}".format(message, timestamp).encode('utf8'), sha256)
     token = urllib.parse.quote_plus(base64.b64encode(digest.digest()))
-    url = f'https://ai.catlulu.net/text2img?prompt={weather}&verify={timestamp}-{token}'
+    url = f'{WORKER_AI_API}/text2img?prompt={weather}&verify={timestamp}-{token}'
     response = requests.get(url)
     return response.content
 

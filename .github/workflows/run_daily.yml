@@ -32,5 +32,6 @@ jobs:
                 TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
                 WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
                 CITY_NAME: ${{ secrets.CITY_NAME }}
+                WORKER_AI_API: ${{ secrets.WORKER_AI_API }}
                 CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
               run: python daily_bot.py
