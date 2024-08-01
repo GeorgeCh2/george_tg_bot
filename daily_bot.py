@@ -58,7 +58,7 @@ def get_weather():
     return {'text': weather_report, 'img': weather_img}
 
 def get_exchange_rate():
-    url = f'https://fin.paas.cmbchina.com/fininfo/api/calculator/getFxRealRate?bsflag=buy&chflag=XH&currency=39'
+    url = f'https://fin.paas.cmbchina.com/fininfo/api/calculator/fx-real-rate?bsflag=buy&chflag=XH&currency=39'
     response = requests.get(url)
     exchange_data = response.json()
 
